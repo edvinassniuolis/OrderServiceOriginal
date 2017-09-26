@@ -45,6 +45,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,10 +60,10 @@
     <Compile Include="DAO\Interfaces\IProductDAO.cs" />
     <Compile Include="DAO\OrderDAO.cs" />
     <Compile Include="DAO\ProductDAO.cs" />
-    <Compile Include="Data\Customer.cs" />
+    <Compile Include="Data\CustomerData.cs" />
     <Compile Include="Data\OrderData.cs" />
-    <Compile Include="Data\Product.cs" />
-    <Compile Include="IOrderService.cs" />
+    <Compile Include="Data\ProductData.cs" />
+    <Compile Include="IServices\IOrderService.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>OrderDatabase.tt</DependentUpon>
     </Compile>
@@ -81,7 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderDatabase.edmx</DependentUpon>
     </Compile>
-    <Compile Include="OrderService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

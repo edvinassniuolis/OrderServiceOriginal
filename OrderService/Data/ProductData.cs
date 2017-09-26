@@ -3,7 +3,7 @@
 namespace OrderService.Data
 {
     [Serializable]
-    public class Customer
+    public class ProductData
     {
         public int Id { get; set; }
         public string Name { get; set; }

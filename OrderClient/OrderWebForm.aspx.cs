@@ -1,6 +1,7 @@
 ﻿using OrderClient.OrderReference;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 
 namespace OrderClient
@@ -29,20 +30,15 @@ namespace OrderClient
             //IdTextBox.Text = list.ElementAt(0);
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void ViewOrdersBttn_Click(object sender, EventArgs e)
         {
-            //for (int i = 0; i < value; i++)
-            //{
-            //    txtBoxList.ElementAt(i).Text = i.ToString();
-            //}
-            var order = new Order()
-            {
-                Product = "bbb",
-                CustomerName = "aaa",
-                Quantity = 3
-            };
             OrderServiceClient client = new OrderServiceClient();
-            client.AddOrder(order);
+            var list = client.ListOrders();
+
+            OrderIdLbl.Text = list.ElementAt(0).Id.ToString();
+            CustomerNameLbl.Text = list.ElementAt(0).CustomerName;
+            ProductLbl.Text = list.ElementAt(0).Product;
+            QuantityLbl.Text = list.ElementAt(0).Quantity.ToString();
         }
     }
 }

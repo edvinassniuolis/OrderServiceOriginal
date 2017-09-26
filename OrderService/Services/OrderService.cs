@@ -12,16 +12,20 @@ namespace OrderService
             return orderDao.ListOrders();
         }
 
-        public List<string> TestMes()
-        {
-            var orderDao = new OrderDAO();
-            return orderDao.TestMes();
-        }
-
         public void AddOrder(Order order)
         {
             var orderDao = new OrderDAO();
             orderDao.AddOrder(order);
+        }
+
+        public void UpdateOrder(int id, int quantity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void DeleteOrder(int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

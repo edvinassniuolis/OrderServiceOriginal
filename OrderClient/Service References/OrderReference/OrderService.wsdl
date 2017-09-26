@@ -5,7 +5,6 @@
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/OrderService" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IOrderService_ListOrders_InputMessage">
@@ -14,30 +13,50 @@
   <wsdl:message name="IOrderService_ListOrders_OutputMessage">
     <wsdl:part name="parameters" element="tns:ListOrdersResponse" />
   </wsdl:message>
-  <wsdl:message name="IOrderService_TestMes_InputMessage">
-    <wsdl:part name="parameters" element="tns:TestMes" />
-  </wsdl:message>
-  <wsdl:message name="IOrderService_TestMes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TestMesResponse" />
-  </wsdl:message>
   <wsdl:message name="IOrderService_AddOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:AddOrder" />
   </wsdl:message>
   <wsdl:message name="IOrderService_AddOrder_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddOrderResponse" />
   </wsdl:message>
+  <wsdl:message name="IOrderService_UpdateOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_UpdateOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_DeleteOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_DeleteOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetOrder_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrder" />
+  </wsdl:message>
+  <wsdl:message name="IOrderService_GetOrder_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrderResponse" />
+  </wsdl:message>
   <wsdl:portType name="IOrderService">
     <wsdl:operation name="ListOrders">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/ListOrders" message="tns:IOrderService_ListOrders_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/ListOrdersResponse" message="tns:IOrderService_ListOrders_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="TestMes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/TestMes" message="tns:IOrderService_TestMes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/TestMesResponse" message="tns:IOrderService_TestMes_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="AddOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/AddOrder" message="tns:IOrderService_AddOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/AddOrderResponse" message="tns:IOrderService_AddOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/UpdateOrder" message="tns:IOrderService_UpdateOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/UpdateOrderResponse" message="tns:IOrderService_UpdateOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/DeleteOrder" message="tns:IOrderService_DeleteOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/DeleteOrderResponse" message="tns:IOrderService_DeleteOrder_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <wsdl:input wsaw:Action="http://tempuri.org/IOrderService/GetOrder" message="tns:IOrderService_GetOrder_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IOrderService/GetOrderResponse" message="tns:IOrderService_GetOrder_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IOrderService" type="tns:IOrderService">
@@ -51,8 +70,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="TestMes">
-      <soap:operation soapAction="http://tempuri.org/IOrderService/TestMes" style="document" />
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/AddOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -60,8 +79,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddOrder">
-      <soap:operation soapAction="http://tempuri.org/IOrderService/AddOrder" style="document" />
+    <wsdl:operation name="UpdateOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/UpdateOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/DeleteOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrder">
+      <soap:operation soapAction="http://tempuri.org/IOrderService/GetOrder" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

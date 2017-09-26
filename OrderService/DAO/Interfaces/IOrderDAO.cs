@@ -6,9 +6,7 @@ namespace OrderService.DAO.Interfaces
     {
         List<Order> ListOrders();
         void AddOrder(Order order);
-        void UpdateOrder();
+        void UpdateOrder(int id, int quantity);
         void DeleteOrder(int id);
-        List<string> TestMes();
-
     }
 }

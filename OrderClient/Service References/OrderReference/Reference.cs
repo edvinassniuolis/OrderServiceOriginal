@@ -116,17 +116,29 @@ namespace OrderClient.OrderReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ListOrders", ReplyAction="http://tempuri.org/IOrderService/ListOrdersResponse")]
         System.Threading.Tasks.Task<OrderClient.OrderReference.Order[]> ListOrdersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/TestMes", ReplyAction="http://tempuri.org/IOrderService/TestMesResponse")]
-        string[] TestMes();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/TestMes", ReplyAction="http://tempuri.org/IOrderService/TestMesResponse")]
-        System.Threading.Tasks.Task<string[]> TestMesAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
         void AddOrder(OrderClient.OrderReference.Order order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
         System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderReference.Order order);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/UpdateOrder", ReplyAction="http://tempuri.org/IOrderService/UpdateOrderResponse")]
+        void UpdateOrder(int id, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/UpdateOrder", ReplyAction="http://tempuri.org/IOrderService/UpdateOrderResponse")]
+        System.Threading.Tasks.Task UpdateOrderAsync(int id, int quantity);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/DeleteOrder", ReplyAction="http://tempuri.org/IOrderService/DeleteOrderResponse")]
+        void DeleteOrder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/DeleteOrder", ReplyAction="http://tempuri.org/IOrderService/DeleteOrderResponse")]
+        System.Threading.Tasks.Task DeleteOrderAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
+        OrderClient.OrderReference.Order GetOrder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
+        System.Threading.Tasks.Task<OrderClient.OrderReference.Order> GetOrderAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -164,20 +176,36 @@ namespace OrderClient.OrderReference {
             return base.Channel.ListOrdersAsync();
         }
         
-        public string[] TestMes() {
-            return base.Channel.TestMes();
-        }
-        
-        public System.Threading.Tasks.Task<string[]> TestMesAsync() {
-            return base.Channel.TestMesAsync();
-        }
-        
         public void AddOrder(OrderClient.OrderReference.Order order) {
             base.Channel.AddOrder(order);
         }
         
         public System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderReference.Order order) {
             return base.Channel.AddOrderAsync(order);
+        }
+        
+        public void UpdateOrder(int id, int quantity) {
+            base.Channel.UpdateOrder(id, quantity);
+        }
+        
+        public System.Threading.Tasks.Task UpdateOrderAsync(int id, int quantity) {
+            return base.Channel.UpdateOrderAsync(id, quantity);
+        }
+        
+        public void DeleteOrder(int id) {
+            base.Channel.DeleteOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteOrderAsync(int id) {
+            return base.Channel.DeleteOrderAsync(id);
+        }
+        
+        public OrderClient.OrderReference.Order GetOrder(int id) {
+            return base.Channel.GetOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task<OrderClient.OrderReference.Order> GetOrderAsync(int id) {
+            return base.Channel.GetOrderAsync(id);
         }
     }
 }

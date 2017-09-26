@@ -5,6 +5,6 @@ namespace OrderService.DAO.Interfaces
 {
     public interface IProductDAO
     {
-        List<Product> ListProducts();
+        List<ProductData> ListProducts();
     }
 }

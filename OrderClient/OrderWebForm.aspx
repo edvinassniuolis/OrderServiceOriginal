@@ -46,19 +46,18 @@
     
 
     <form id="form2" runat="server">
-        <table>
-            
+        <table>        
             <% for (int i = 0; i < value; i++) {%>
             <tr>
-                    <td><asp:TextBox ID="GeneratedTextBox" runat="server"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-                    <td><asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+                <td><asp:Label ID="OrderIdLbl" runat="server" Text=""></asp:Label></td>
+                <td><asp:Label ID="CustomerNameLbl" runat="server" Text=""></asp:Label></td>
+                <td><asp:Label ID="ProductLbl" runat="server" Text=""></asp:Label></td>
+                <td><asp:Label ID="QuantityLbl" runat="server" Text=""></asp:Label></td>
             </tr>
                <%} %>
             <tr>
                 <td>
-                    <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click" />
+                    <asp:Button ID="ViewOrdersBttn" runat="server" Text="Button" OnClick="ViewOrdersBttn_Click" />
                 </td>
             </tr>       
         </table>

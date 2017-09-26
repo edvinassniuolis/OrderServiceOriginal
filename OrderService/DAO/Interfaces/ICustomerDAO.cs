@@ -5,6 +5,6 @@ namespace OrderService.DAO.Interfaces
 {
     public interface ICustomerDAO
     {
-        List<Customer> ListCustomers();
+        List<CustomerData> ListCustomers();
     }
 }

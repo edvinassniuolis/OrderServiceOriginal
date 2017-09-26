@@ -1,4 +1,5 @@
 ﻿using OrderService.DAO.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,73 +10,83 @@ namespace OrderService.DAO
         public List<Order> ListOrders()
         {
             var orderList = new List<Order>();
-
-            using (var db = new MMDatabaseEntities())
+            try
             {
-                db.Database.Connection.Open();
-                var orderId = from order in db.Orders
-                              orderby order.Id
-                              select order.Id;
-
-                var orderCustomerName = from order in db.Orders
-                                        orderby order.Id
-                                        select order.CustomerName;
-
-                var orderProduct = from order in db.Orders
-                                   orderby order.Id
-                                   select order.Product;
-
-                var orderQuantity = from order in db.Orders
-                                    orderby order.Id
-                                    select order.Quantity;
-
-                for (int i = 0; i < orderId.Count(); i++)
+                using (var db = new MMDatabaseEntities())
                 {
-                    var tempOrder = new Order();
-                    tempOrder.Id = orderId.Skip(i).First();
-                    tempOrder.CustomerName = orderCustomerName.Skip(i).First();
-                    tempOrder.Product = orderProduct.Skip(i).First();
-                    tempOrder.Quantity = orderQuantity.Skip(i).First();
-                    orderList.Add(tempOrder);
+                    db.Database.Connection.Open();
+                    orderList = db.Orders.ToList();
                 }
+                return orderList;
             }
-            return orderList.ToList();
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
 
         public void AddOrder(Order order)
         {
-            using (var db = new MMDatabaseEntities())
+            try
             {
-                db.Database.Connection.Open();
-                db.Orders.Add(order);
-                db.SaveChanges();
-
+                using (var db = new MMDatabaseEntities())
+                {
+                    db.Database.Connection.Open();
+                    db.Orders.Add(order);
+                    db.SaveChanges();
+                }
             }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+
         }
 
-        public void UpdateOrder()
+        public void UpdateOrder(int id, int quantity)
         {
-            throw new System.NotImplementedException();
+            try
+            {
+                using (var db = new MMDatabaseEntities())
+                {
+                    db.Database.Connection.Open();
+                    Order order = db.Orders.SingleOrDefault((o) => o.Id == id);
+
+                    if (order != null)
+                        order.Quantity = quantity;
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         public void DeleteOrder(int id)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public List<string> TestMes()
-        {
-            List<string> list;
-
-            using (MMDatabaseEntities db = new MMDatabaseEntities())
+            try
             {
-                db.Database.Connection.Open();
-                var orderCustomerName = from order in db.Orders
-                                        select order.CustomerName;
+                using (var db = new MMDatabaseEntities())
+                {
+                    db.Database.Connection.Open();
+                    Order order = db.Orders.SingleOrDefault((o) => o.Id == id);
 
-                list = orderCustomerName.ToList();
+                    if (order != null)
+                        db.Orders.Remove(order);
+
+                    db.SaveChanges();
+                }
             }
-            return list;
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }

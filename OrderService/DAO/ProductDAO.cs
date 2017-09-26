@@ -7,7 +7,7 @@ namespace OrderService.DAO
 {
     public class ProductDAO : IProductDAO
     {
-        public List<Product> ListProducts()
+        public List<ProductData> ListProducts()
         {
             throw new NotImplementedException();
         }
