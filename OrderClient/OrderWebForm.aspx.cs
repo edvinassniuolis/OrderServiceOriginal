@@ -1,7 +1,8 @@
-﻿using OrderClient.OrderReference;
+﻿using OrderClient.OrderService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web.UI.WebControls;
 
 namespace OrderClient
@@ -32,13 +33,22 @@ namespace OrderClient
 
         protected void ViewOrdersBttn_Click(object sender, EventArgs e)
         {
-            OrderServiceClient client = new OrderServiceClient();
-            var list = client.ListOrders();
+            try
+            {
+                OrderServiceClient client = new OrderServiceClient();
+                var list = client.ListOrders();
 
-            OrderIdLbl.Text = list.ElementAt(0).Id.ToString();
-            CustomerNameLbl.Text = list.ElementAt(0).CustomerName;
-            ProductLbl.Text = list.ElementAt(0).Product;
-            QuantityLbl.Text = list.ElementAt(0).Quantity.ToString();
+                OrderIdLbl.Text = list.ElementAt(0).Id.ToString();
+                CustomerNameLbl.Text = list.ElementAt(0).CustomerName;
+                ProductLbl.Text = list.ElementAt(0).Product;
+                QuantityLbl.Text = list.ElementAt(0).Quantity.ToString();
+            }
+            catch (CommunicationException exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+
         }
     }
 }

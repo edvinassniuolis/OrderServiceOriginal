@@ -54,6 +54,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer.cs">
+      <DependentUpon>OrderDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="DAO\CustomerDAO.cs" />
     <Compile Include="DAO\Interfaces\ICustomerDAO.cs" />
     <Compile Include="DAO\Interfaces\IOrderDAO.cs" />
@@ -63,6 +67,8 @@
     <Compile Include="Data\CustomerData.cs" />
     <Compile Include="Data\OrderData.cs" />
     <Compile Include="Data\ProductData.cs" />
+    <Compile Include="IServices\ICustomerService.cs" />
+    <Compile Include="IServices\IProductService.cs" />
     <Compile Include="IServices\IOrderService.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>OrderDatabase.tt</DependentUpon>
@@ -82,6 +88,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs">
+      <DependentUpon>OrderDatabase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

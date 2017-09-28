@@ -25,8 +25,8 @@ namespace OrderService
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Product> Products { get; set; }
     }
 }

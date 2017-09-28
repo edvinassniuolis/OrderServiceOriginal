@@ -20,12 +20,14 @@ namespace OrderService
 
         public void UpdateOrder(int id, int quantity)
         {
-            throw new System.NotImplementedException();
+            var orderDao = new OrderDAO();
+            orderDao.UpdateOrder(id, quantity);
         }
 
         public void DeleteOrder(int id)
         {
-            throw new System.NotImplementedException();
+            var orderDao = new OrderDAO();
+            orderDao.DeleteOrder(id);
         }
     }
 }

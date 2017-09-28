@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace OrderClient.OrderReference {
+namespace OrderClient.OrderService {
     using System.Runtime.Serialization;
     using System;
     
@@ -107,20 +107,20 @@ namespace OrderClient.OrderReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderReference.IOrderService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="OrderService.IOrderService")]
     public interface IOrderService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ListOrders", ReplyAction="http://tempuri.org/IOrderService/ListOrdersResponse")]
-        OrderClient.OrderReference.Order[] ListOrders();
+        OrderClient.OrderService.Order[] ListOrders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/ListOrders", ReplyAction="http://tempuri.org/IOrderService/ListOrdersResponse")]
-        System.Threading.Tasks.Task<OrderClient.OrderReference.Order[]> ListOrdersAsync();
+        System.Threading.Tasks.Task<OrderClient.OrderService.Order[]> ListOrdersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
-        void AddOrder(OrderClient.OrderReference.Order order);
+        void AddOrder(OrderClient.OrderService.Order order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/AddOrder", ReplyAction="http://tempuri.org/IOrderService/AddOrderResponse")]
-        System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderReference.Order order);
+        System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderService.Order order);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/UpdateOrder", ReplyAction="http://tempuri.org/IOrderService/UpdateOrderResponse")]
         void UpdateOrder(int id, int quantity);
@@ -133,21 +133,15 @@ namespace OrderClient.OrderReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/DeleteOrder", ReplyAction="http://tempuri.org/IOrderService/DeleteOrderResponse")]
         System.Threading.Tasks.Task DeleteOrderAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
-        OrderClient.OrderReference.Order GetOrder(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IOrderService/GetOrder", ReplyAction="http://tempuri.org/IOrderService/GetOrderResponse")]
-        System.Threading.Tasks.Task<OrderClient.OrderReference.Order> GetOrderAsync(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IOrderServiceChannel : OrderClient.OrderReference.IOrderService, System.ServiceModel.IClientChannel {
+    public interface IOrderServiceChannel : OrderClient.OrderService.IOrderService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class OrderServiceClient : System.ServiceModel.ClientBase<OrderClient.OrderReference.IOrderService>, OrderClient.OrderReference.IOrderService {
+    public partial class OrderServiceClient : System.ServiceModel.ClientBase<OrderClient.OrderService.IOrderService>, OrderClient.OrderService.IOrderService {
         
         public OrderServiceClient() {
         }
@@ -168,19 +162,19 @@ namespace OrderClient.OrderReference {
                 base(binding, remoteAddress) {
         }
         
-        public OrderClient.OrderReference.Order[] ListOrders() {
+        public OrderClient.OrderService.Order[] ListOrders() {
             return base.Channel.ListOrders();
         }
         
-        public System.Threading.Tasks.Task<OrderClient.OrderReference.Order[]> ListOrdersAsync() {
+        public System.Threading.Tasks.Task<OrderClient.OrderService.Order[]> ListOrdersAsync() {
             return base.Channel.ListOrdersAsync();
         }
         
-        public void AddOrder(OrderClient.OrderReference.Order order) {
+        public void AddOrder(OrderClient.OrderService.Order order) {
             base.Channel.AddOrder(order);
         }
         
-        public System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderReference.Order order) {
+        public System.Threading.Tasks.Task AddOrderAsync(OrderClient.OrderService.Order order) {
             return base.Channel.AddOrderAsync(order);
         }
         
@@ -198,14 +192,6 @@ namespace OrderClient.OrderReference {
         
         public System.Threading.Tasks.Task DeleteOrderAsync(int id) {
             return base.Channel.DeleteOrderAsync(id);
-        }
-        
-        public OrderClient.OrderReference.Order GetOrder(int id) {
-            return base.Channel.GetOrder(id);
-        }
-        
-        public System.Threading.Tasks.Task<OrderClient.OrderReference.Order> GetOrderAsync(int id) {
-            return base.Channel.GetOrderAsync(id);
         }
     }
 }

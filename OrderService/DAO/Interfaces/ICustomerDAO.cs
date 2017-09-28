@@ -1,10 +1,9 @@
-﻿using OrderService.Data;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace OrderService.DAO.Interfaces
 {
     public interface ICustomerDAO
     {
-        List<CustomerData> ListCustomers();
+        List<Customer> ListCustomers();
     }
 }

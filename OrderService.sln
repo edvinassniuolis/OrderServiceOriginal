@@ -9,6 +9,29 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderServiceHost", "OrderSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderClient", "OrderClient\OrderClient.csproj", "{4A5E7DE1-C667-41D1-89C5-8CCB8E0CE51B}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "OrderServiceIISHost", "OrderServiceIISHost\", "{2A6F13E5-2794-4299-9498-AE185B163F67}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{e4c83d71-5c44-435a-87b7-0ddac684d5d1}|OrderService.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_63366"
+		Debug.AspNetCompiler.PhysicalPath = "OrderServiceIISHost\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63366\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_63366"
+		Release.AspNetCompiler.PhysicalPath = "OrderServiceIISHost\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_63366\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "63366"
+		SlnRelativePath = "OrderServiceIISHost\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +50,10 @@ Global
 		{4A5E7DE1-C667-41D1-89C5-8CCB8E0CE51B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A5E7DE1-C667-41D1-89C5-8CCB8E0CE51B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A5E7DE1-C667-41D1-89C5-8CCB8E0CE51B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A6F13E5-2794-4299-9498-AE185B163F67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6F13E5-2794-4299-9498-AE185B163F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A6F13E5-2794-4299-9498-AE185B163F67}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A6F13E5-2794-4299-9498-AE185B163F67}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
